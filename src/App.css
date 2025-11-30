@@ -5,6 +5,12 @@
   text-align: center;
 }
 
+:root {
+  --sparkle-blue: #2c3cf1ff;
+  --sparkle-green: #2fe6a3ff;
+  --seconds: 2s;
+}
+
 @property --deg {
   syntax: "<angle>";
   inherits: false;
@@ -19,6 +25,7 @@
     --deg: 360deg;
   }
 }
+
 .ufo-container {
   position: relative;
   display: grid;
@@ -30,26 +37,26 @@
   position: absolute;
   inset: 0px;
   border-radius: inherit;
-  animation: spin 6s infinite linear;
+  animation: spin var(--seconds) infinite linear;
   background: linear-gradient(
     var(--deg),
-    #6a5cff 0%,
-    #6a5cff 5%,
-    #40e0d0 95%,
-    #40e0d0 100%
+    var(--sparkle-blue) 0%,
+    var(--sparkle-blue) 5%,
+    var(--sparkle-green) 95%,
+    var(--sparkle-green) 100%
   );
   filter: blur(40px);
   z-index: -1;
 }
 
 .ufo-matte {
-  animation: spin 6s infinite linear;
+  animation: spin var(--seconds) infinite linear;
   background: linear-gradient(
     var(--deg),
-    #6a5cff 0%,
-    #6a5cff 20%,
-    #40e0d0 80%,
-    #40e0d0 100%
+    var(--sparkle-blue) 0%,
+    var(--sparkle-blue) 20%,
+    var(--sparkle-green) 80%,
+    var(--sparkle-green) 100%
   );
   width: calc(163px + 2px);
   height: calc(39px + 2px);
@@ -58,6 +65,18 @@
   border-radius: 8px;
   /* border-radius: 50%; */
   position: absolute;
+}
+
+@keyframes bg {
+  0% {
+    background: #3b3b3b;
+  }
+  50% {
+    background: #4f4f4fff;
+  }
+  100% {
+    background: #3b3b3b;
+  }
 }
 
 .ufo-text {
